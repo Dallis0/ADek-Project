@@ -1,0 +1,53 @@
+.body{
+  padding:0px;
+  width: 900px;
+  margin-left:left;
+  margin-right:auto;
+  height:1000px;
+  /*background-image:linear-gradient(to right,#08081b, #2c2c4b);*/
+  background-color:#08081b;
+}
+
+.header{
+  margin-top:20px;
+  display:flex;
+  min-width:500px;
+  height:90px;
+  font-size: .9em;
+  font-family: "Lucida Sans";
+
+}
+
+.ADek_logo{
+  width:222px; 
+  height:150px;
+  text-align:center;
+   
+}
+
+svg{
+  height:50%;
+  max-width:50%;
+  vertical-align:center;
+  transition: transform .5s;
+}
+
+svg:hover{
+  transform: scale(1.1);
+}
+
+.nav-link-wrapper{
+  margin-left:0px;
+  margin-right:35px;
+  margin-top:35px;
+}
+
+.nav-link-wrapper a{
+  color:#e7e7f2;
+  transition:color .5s;
+  text-decoration:none;
+}
+
+.nav-link-wrapper a:hover{
+  color: #afafd3;
+}
