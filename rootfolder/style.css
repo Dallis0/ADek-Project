@@ -5,14 +5,18 @@
 }
 
 body {
-  background-color:#2c2b2b;
+  background-color:#1a1919;
+}
+
+#wip_body {
+  background-color:#2b2b4e;
 }
 
 nav {
   
   width: 100%;
   height: 100px;
-  background-color: #1f1e1e;
+  background-color: #111111;
 }
 
 .wrapper {
@@ -76,28 +80,34 @@ ul li a:hover {
 }
 
 .box {
+  display:block;
   margin-top:60px;
   margin-bottom: 50px;
   width:1000px;
   height:1000px;
-  background-color: #b6b5bd;
+  background-color: #ffffff;
 }
 
 .box h2 {
   font-size: 40px;
-  color: #45456d;
+  color: #5d5d85;
   text-indent:50px;
   line-height: 100px;
 }
 
-#wip-box {
-  position: relative;
-  width:1000px;
-  height:1000px;
+.box h3 {
+  margin: 40px;
+  text-indent: 30px;
 }
 
-#wip {
-  height: 200px;
+#wip-box {
+  position: relative;
+  width:200px;
+  height:200px;
+}
+
+#wip_video {
+  height: 260px;
   width:auto;
   padding:20px;
 
