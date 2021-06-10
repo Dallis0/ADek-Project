@@ -1,134 +1,243 @@
-/*# Global variables for convenience
-:root{
-  --color-indigo-dark : #2b2b4e;
-  --color-black : #111111;
-  --color-off-white : #e7e7f2;
-  --color-indigo-light : #b6acd8;
-  --color-white : #ffffff;
-  --color-indigo-titles : #5d5d85;
-  --font-global : lato;
-}
-*/
+/*==============================================================================================
+Style and theme CSS for ADek - website.
+All custom classes (not customized Bootstrap) should start with the 'A-' prefix (stands for ADek)
+for distinction.
+==============================================================================================*/
+/*==========================================
+----------------TODO:-----------------------
+-get info on navbar layout and subpages (content)
+-navbar contact on right side
+-fun shape in navbar?
+-standardize navbar and bottom bar across all pages
+-play around with pseudo-elements
+==========================================*/
 
-/*# Global values */
+
+/* Global variables for convenience*/
+:root{
+  --color-indigo-dark  : #2b2b4e; /*Convert all of this to HSL later*/
+  --color-black        : #0c090f; /*Maybe? improve palette?*/
+  --color-off-white    : #e7e7f2;
+  --color-indigo-light : #b6acd8;
+  --color-white        : #ffffff;
+  --color-indigo-complementary: #5d5d85;
+  --font-global        : lato;
+  --logo-scale-expand  : 1.15;
+  --logo-block-height  : 10rem;
+  --logo-inline-height : 3.5rem;
+  --carousel-height    : 40vw;
+}
+
+
+/*=============================
+---Global values / Bodies------
+=============================*/
 *{
-  margin: 0;
   padding: 0;
-  font-family: lato;
-  /*font-family: var(--font-global);*/
+  font-family: var(--font-global);
 }
 
 body {
-  background-color:#1a1919;
-  /*background-color: var(--color-black);*/
+  background-color: var(--color-off-white); /*Nope*/
 }
 
-#wip_body {
-  background-color:#2b2b4e;
-  /*background-color: var(--color-indigo-dark);*/
+
+
+/*=====================================
+------Custom theme classes-------------
+=====================================*/
+
+/*Custom dark theme*/
+.A-theme-dark{ 
+  background-color: var(--color-indigo-dark);
+  color: var(--color-off-white);
+}
+/*Custom selection - inverted colors*/
+.A-theme-dark ::selection{
+  color : var(--color-indigo-dark);
+  background-color: var(--color-off-white);
+}
+/*Ensure links are not blue (ugly!)*/
+.A-theme-dark a{
+  color: var(--color-off-white);
 }
 
-nav {
-  width: 100%;
-  height: 100px;
-  background-color: #111111;
-  /*background-color: var(--color-black);*/
+/*Complementary, secondary theme to the dark theme*/
+.A-theme-dark-comp{
+  background-color: var(--color-off-white);
+  color: var(--color-indigo-complementary);
 }
 
-.wrapper {
-  display: flex;
-  margin: 0 auto 0 60px;
-  width: 1000px;
+/*Custom light theme*/
+.A-theme-light{
+  background-color: var(--color-indigo-light);
+  color: var(--color-black);
+}
+/*Custom selection - inverted colors*/
+.A-theme-light ::selection{
+  color : var(--color-indigo-light);
+  background-color: var(--color-off-white);
+}
+/*Ensure links are not blue (ugly!)*/
+.A-theme-light a{
+  color: var(--color-indigo-light);
 }
 
-.img-logo {
-  position: relative;
-  width: 200px; 
-  height: 100px;
-  text-align: center;
-  margin-right: 30px;
+
+/*==============================
+------------WIP PAGE------------ (DO NOT USE FOR OTHER PAGES)
+==============================*/
+#wip-body{
+  background-color: var(--color-off-white);
 }
 
-.img-logo a svg {
-  height: 40px;
-  width:auto;
-  top: 50%;
-  margin-top: 30px;
-  transition: transform .5s;
+/*Video helper class*/
+.A-video-medium{
+  max-width: 75%;
 }
-
-/*# Expand logo on hover */
-.img-logo a svg:hover{
-  transform: scale(1.1);
-}
-
-ul {
-  /*#Empty ruleset!*/
-}
-
-ul li {
-  float: left;
-  list-style: none;
-  line-height: 100px;
-}
-
-ul li a {
-  display: block;
-  text-decoration:none;
-  color: #e7e7f2;
-  padding: 0 20px;
-}
-
-ul li a:hover {
-  color: #b6acd8;
-  /*color: var(--color-indigo-light);*/
-  /* background-color: #2b2b4e;*/
-}
-
-.nav-right {
-  margin: 0 60px 0 auto;
-}
-
-.nav-right li {
-  float: right;
-}
-
-.nav-right li a {
-  /*#Empty ruleset!*/
-}
-
-.box {
-  display:block;
-  margin-top:60px;
-  margin-bottom: 50px;
-  width:1000px;
-  height:1000px;
-  background-color: #ffffff;
-  /*background-color: var(--color-white);*/
-}
-
-.box h2 {
-  font-size: 40px;
-  color: #5d5d85;
-  /*color: var(--color-indigo-titles)*/
-  text-indent:50px;
-  line-height: 100px;
-}
-
-.box h3 {
-  margin: 40px;
-  text-indent: 30px;
-}
-
+/*Relict*/
 #wip-box {
   position: relative;
   width:200px;
   height:200px;
 }
 
-#wip_video {
-  height: 260px;
-  width: auto;
-  padding: 20px;
-  margin: 200px 400px;
+
+/*====================================
+-----------------NAVBAR---------------
+====================================*/
+/*Navbar customization. Play around with padding but keep T=B=L=R*/
+.navbar{
+  padding: 0.75rem 0.75rem;
 }
+
+/*Adjust navbar link size in relation to tallest element in navbar (Logo)*/
+a.nav-link{
+  font-size: calc(var(--logo-inline-height) / 3);
+  font-weight: 400;
+}
+
+/*Fix dropdown menu behavior*/
+.dropdown-menu{
+  top: calc(var(--logo-inline-height) / 1.75);
+}
+
+/*Adjust dropdown menu size to be same as navbar link font size*/
+a.dropdown-item{
+  font-size: calc(var(--logo-inline-height) / 3);
+}
+
+/*Custom class to justify middle <ul> to the middle of the screen*/
+ul.nav-item-right{
+  margin-left: calc(var(--logo-inline-height) * 2.2); /*<--H/W ratio of logo (unkown)*/
+}
+
+
+/*==================================
+-------------CAROUSEL---------------
+==================================*/
+/*Move carousel controls closer to border*/
+.carousel-control-prev, .carousel-control-next{
+  width: 5%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
+  filter: invert(1); /*Change icon colors to dark (black)*/
+}
+
+.carousel-item{
+  border: 4px solid var(--color-black );
+}
+
+.A-carousel-img-wrapper{
+  display: inline-block;
+  width: 75%;
+  float: right;
+}
+
+/*IMPORTNANT ensure carousel images are all same height, so that carousel doesn't resize*/
+.A-carousel-img{
+  width: 100%;
+  height: var(--carousel-height);
+  display: inline-block;
+  margin: 0;
+}
+
+/*Div containing text next to carousel image*/
+.A-carousel-desc{
+  height: var(--carousel-height);
+  width: 25%;
+  display: inline-block;
+  border-right: 4px solid black;
+}
+
+/*Text next to carousel images*/
+.A-carousel-text{
+  margin: 5% 10%;
+  color: var(--color-indigo-dark);
+  overflow: hidden;
+}
+
+
+
+/*======================================
+-----DIVS - Contrainers, wrappers-------
+======================================*/
+
+/*Global container for body of page excluding navbar and bottom bar*/
+div.container-fluid{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+/*===========================
+----------LOGO---------------
+===========================*/
+/*Inline logo, mostly for navbar*/
+.A-logo-inline {
+  position: relative;
+  height: var(--logo-inline-height);
+  width : auto;
+  text-align: center;
+  margin-top   : 0;
+  margin-bottom: 0;
+  margin-left : calc(var(--logo-inline-height) / 6);
+  margin-right: calc(var(--logo-inline-height) / 6);
+}
+
+.A-logo-inline svg {
+  height: 100%; /*Change this prop to change actual logo height*/
+  width : auto;
+  margin-left: 0;
+  margin-right: auto;
+  transition: transform 300ms ease-in; /*Adjust transition as needed*/
+}
+
+/* Expand logo on hover */
+.A-logo-inline svg:hover{
+  transform: scale(var(--logo-scale-expand));
+}
+
+/*Div container class for logo, block display*/
+.A-logo-container{
+  position: relative;
+  height: var(--logo-block-height);
+  width: auto;
+  text-align: center;
+  margin: calc(var(--logo-block-height) / 10);
+}
+
+.A-logo-container a{
+  height: 100%;
+  width: auto;
+}
+
+.A-logo-container a svg{
+  height: 100%; /*Change this prop to change actual logo height*/
+  width: auto;
+  margin-left: 0;
+}
+
